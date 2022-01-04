@@ -6,6 +6,8 @@ var specialCharacters = "!@#$%^&*()_+-=;':,./<>?[]{}";
 
 // function to generate the password
 function generatePassword() {
+  var password = "";
+
   let passwordLength = window.prompt(
     "How long would you like your password to be? Choose between 8 and 128."
   );
@@ -35,7 +37,6 @@ function generatePassword() {
   console.log(confirmNumbers);
   console.log(confirmSpecialCharacters);
 
-
   if (
     confirmUpperCase === false &&
     confirmLowerCase === false &&
@@ -43,7 +44,7 @@ function generatePassword() {
     confirmSpecialCharacters === false
   ) {
     alert("You must choose at least one option! Try again.");
-    // return generatePassword();
+    return generatePassword();
   }
 
   var instances = "";
@@ -62,7 +63,7 @@ function generatePassword() {
     instances += specialCharacters;
   }
 
-  for ( var i = 0; i < passwordLength; i++) {
+  for (var i = 0; i < passwordLength; i++) {
     random = Math.floor(Math.random() * instances.length);
     var key = instances[random];
     password += key;
@@ -74,12 +75,12 @@ function generatePassword() {
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
 
-// // Write password to the #password input
+// Write password to the #password input
 // function writePassword() {
 //   var password = generatePassword();
 //   var passwordText = document.querySelector("#password");
 
-//   passwordText.value = password;
+//   // passwordText.value = password;
 // }
 
 // Add event listener to generate button
