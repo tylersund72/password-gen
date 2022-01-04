@@ -11,7 +11,6 @@ function generatePassword() {
   );
   console.log(passwordLength);
   passwordLength = parseInt(passwordLength, 10);
-  var randomPassword = "";
 
   while (passwordLength <= 7 || passwordLength >= 129) {
     alert("Please choose between 8 and 128 characters.");
@@ -66,7 +65,7 @@ function generatePassword() {
   for ( var i = 0; i < passwordLength; i++) {
     random = Math.floor(Math.random() * instances.length);
     var key = instances[random];
-    password = key;
+    password += key;
   }
 
   document.querySelector("#password").value = password;
@@ -75,13 +74,13 @@ function generatePassword() {
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
 
-// Write password to the #password input
-function writePassword() {
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
+// // Write password to the #password input
+// function writePassword() {
+//   var password = generatePassword();
+//   var passwordText = document.querySelector("#password");
 
-  passwordText.value = password;
-}
+//   passwordText.value = password;
+// }
 
 // Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
+generateBtn.addEventListener("click", generatePassword);
